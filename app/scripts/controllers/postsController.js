@@ -10,14 +10,14 @@
 angular.module('angularTrainingApp')
     .controller('PostsCtrl', ['$scope', 'postsService', function ($scope, postsService) {
         this.posts = postsService.getPosts();
-
+        $scope.post = {};
 
         $scope.createPost = function() {
-            postsService.addPost(this.post);
+            postsService.addPost($scope.post);
         };
 
         $scope.formReset = function() {
             $('#myModal').modal('hide');
-            this.post = {};
+            $scope.post = {};
         };
     }]);
